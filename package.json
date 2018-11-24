@@ -2,25 +2,18 @@
   "name": "node-red-contrib-mssql",
   "version": "0.0.7",
   "description": "Node for node-red to connect to a Microsoft MS SQL Database",
-  "main": "odbc.js",
-  "dependencies": {
-    "mssql": ">=3.0.1 <4.0.0",
-    "mustache": "latest"
-  },
-  "node-red": {
-    "nodes": {
-      "mssql": "mssql.js"
-    }
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "npm version patch && git push --tags",
     "postrelease": "npm publish . && git push"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/redconnect-io/node-red-contrib-mssql"
-  },
+  "author": "Redconnect.io",
+  "contributors": [
+    {
+      "name": "Cloudlyfe-Aldwin",
+      "url": "https://github.com/cloudlyfe-aldwin"
+    }
+  ],
   "keywords": [
     "node-red",
     "odbc",
@@ -30,10 +23,28 @@
     "Microsoft",
     "database"
   ],
-  "author": "Redconnect.io",
   "license": "MIT",
   "homepage": "http://www.redconnect.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redconnect-io/node-red-contrib-mssql"
+  },
   "bugs": {
     "url": "https://github.com/redconnect-io/node-red-contrib-mssql/issues"
-  }
+  },
+  "dependencies": {
+    "msnodesqlv8": "^0.6.9",
+    "mssql": ">=4.0.0",
+    "mustache": "latest"
+  },
+  "node-red": {
+    "nodes": {
+      "mssql": "src/mssql.js",
+      "mssql-cn": "src/mssql-cn.js"
+    }
+  },
+  "extensions": [
+    "js",
+    "html"
+  ]
 }

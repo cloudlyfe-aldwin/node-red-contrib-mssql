@@ -1,0 +1,74 @@
+<!--
+  Copyright 2013, 2016 IBM Corp.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="MSSQL-CN">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-bookmark"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Connection Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-server"><i class="icon-bookmark"></i> Server</label>
+        <input type="text" id="node-config-input-server" placeholder="Server name or IP">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-config-input-password">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-domain"><i class="fa fa-user"></i> Domain</label>
+        <input type="text" id="node-config-input-domain">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-database"><i class="fa fa-user"></i> Database</label>
+        <input type="text" id="node-config-input-database">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-integrated"><i class="fa fa-user"></i> Integrated Security</label>
+        <input type="checkbox" id="node-config-input-integrated">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-encryption"><i class="fa fa-user"></i> Use Encryption?</label>
+        <input type="checkbox" id="node-config-input-encryption">
+        <div class="form-tips">SQL Databases hosted on Azure will need this checked</div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('MSSQL-CN', {
+        category: 'config',
+        defaults: {
+            name: { value: "" },
+            server: { value: "" },
+            encryption: { value: true },
+            integrated: { value: false },
+            database: { value: "" }
+        },
+        inputs: 0,
+        outputs: 0,
+        credentials: {
+            username: { type: "text" },
+            password: { type: "password" },
+            domain: { type: "text" }
+        },
+        label: function () {
+            return this.name || "MSSQL-CN";
+        }
+    });
+</script>
